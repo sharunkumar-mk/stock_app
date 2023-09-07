@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stock_app/constants/colors.dart';
 import 'package:stock_app/modules/history.dart';
 import 'package:stock_app/modules/holdings.dart';
 import 'package:stock_app/modules/performance.dart';
@@ -22,7 +23,10 @@ class _PortfolioPageState extends State<PortfolioPage> {
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: Text(
               'Portfolio',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: StockAppColors.textBlack),
             ),
           ),
           actions: [

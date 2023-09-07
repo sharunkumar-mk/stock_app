@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:stock_app/constants/colors.dart';
 import 'package:stock_app/modules/gainers.dart';
 import 'package:stock_app/modules/losers.dart';
 import 'package:stock_app/modules/trending.dart';
@@ -52,7 +53,10 @@ class _MarketPageState extends State<MarketPage>
           padding: EdgeInsets.symmetric(horizontal: 10),
           child: Text(
             'Market',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                color: StockAppColors.textBlack),
           ),
         ),
         centerTitle: false,
