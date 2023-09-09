@@ -38,24 +38,12 @@ class MyAppState extends ConsumerState<MyApp> {
   Widget build(BuildContext context) {
     final isDarkTheme = ref.watch(themeNotifierProvider);
     final appTheme = AppTheme();
-    return Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              fit: BoxFit.fill,
-              image: isDarkTheme
-                  ? const AssetImage(
-                      "assets/images/bg_black.png",
-                    )
-                  : const AssetImage(
-                      "assets/images/bg_white.png",
-                    )),
-        ),
-        child: MaterialApp(
-          title: 'Flutter Demo',
-          theme: isDarkTheme ? appTheme.darkTheme : appTheme.lightTheme,
-          debugShowCheckedModeBanner: false,
-          onGenerateRoute: Routes.generateRoute,
-          initialRoute: dashboardScreen,
-        ));
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: isDarkTheme ? appTheme.darkTheme : appTheme.lightTheme,
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: Routes.generateRoute,
+      initialRoute: dashboardScreen,
+    );
   }
 }
