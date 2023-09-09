@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:stock_app/constants/colors.dart';
 
-class CommonSubText extends StatelessWidget {
-  const CommonSubText(
+class CommonLabel extends StatelessWidget {
+  const CommonLabel(
       {super.key,
       required this.label,
       this.fontSize = 14,
       this.fontWeight = FontWeight.w400,
-      this.fontColor = StockAppColors.textGrey});
+      this.fontColor = StockAppColors.textDarkGrey});
 
   final String label;
   final double fontSize;

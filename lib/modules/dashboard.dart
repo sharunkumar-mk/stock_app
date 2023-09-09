@@ -27,108 +27,111 @@ class _DashboardPageState extends State<DashboardPage>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-        fit: BoxFit.cover,
-        image: AssetImage("assets/images/back.png"),
-      )),
-      child: Scaffold(
-        body: TabBarView(
-          physics: const NeverScrollableScrollPhysics(),
-          controller: tabController,
-          children: widgetOptions,
-        ),
-        bottomNavigationBar: Row(
-          children: [
-            Expanded(
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    IconButton(
-                        onPressed: () {
-                          setState(() {
-                            selectedIndex = 0;
-                            tabController.animateTo(0);
-                          });
-                        },
-                        icon: selectedIndex == 0
-                            ? Image.asset(
-                                "assets/icons/home_active.png",
-                                width: 25,
-                              )
-                            : Image.asset(
-                                "assets/icons/home.png",
-                                width: 25,
-                              )),
-                    IconButton(
-                        onPressed: () {
-                          setState(() {
-                            selectedIndex = 1;
-                            tabController.animateTo(1);
-                          });
-                        },
-                        icon: selectedIndex == 1
-                            ? Image.asset(
-                                "assets/icons/document_active.png",
-                                width: 25,
-                              )
-                            : Image.asset(
-                                "assets/icons/document.png",
-                                width: 25,
-                              )),
-                    IconButton(
-                        onPressed: () {
-                          setState(() {
-                            selectedIndex = 2;
-                            tabController.animateTo(2);
-                          });
-                        },
-                        icon: selectedIndex == 2
-                            ? Image.asset(
-                                "assets/icons/chart_active.png",
-                                width: 25,
-                              )
-                            : Image.asset(
-                                "assets/icons/chart.png",
-                                width: 25,
-                              )),
-                    IconButton(
-                        onPressed: () {
-                          setState(() {
-                            selectedIndex = 3;
-                            tabController.animateTo(3);
-                          });
-                        },
-                        icon: selectedIndex == 3
-                            ? Image.asset(
-                                "assets/icons/pie-chart_active.png",
-                                width: 25,
-                              )
-                            : Image.asset(
-                                "assets/icons/pie-chart.png",
-                                width: 25,
-                              )),
-                    IconButton(
-                        onPressed: () {
-                          setState(() {
-                            selectedIndex = 4;
-                            tabController.animateTo(4);
-                          });
-                        },
-                        icon: selectedIndex == 4
-                            ? Image.asset(
-                                "assets/icons/settings_active.png",
-                                width: 25,
-                              )
-                            : Image.asset(
-                                "assets/icons/settings.png",
-                                width: 25,
-                              )),
-                  ]),
-            ),
-          ],
-        ),
+    return Scaffold(
+      body: TabBarView(
+        physics: const NeverScrollableScrollPhysics(),
+        controller: tabController,
+        children: widgetOptions,
+      ),
+      bottomNavigationBar: Row(
+        children: [
+          Expanded(
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        setState(() {
+                          selectedIndex = 0;
+                          tabController.animateTo(0);
+                        });
+                      },
+                      icon: selectedIndex == 0
+                          ? Image.asset(
+                              "assets/icons/home_active.png",
+                              width: 25,
+                              color: Theme.of(context).iconTheme.color,
+                            )
+                          : Image.asset(
+                              "assets/icons/home.png",
+                              width: 25,
+                              color: Theme.of(context).iconTheme.color,
+                            )),
+                  IconButton(
+                      onPressed: () {
+                        setState(() {
+                          selectedIndex = 1;
+                          tabController.animateTo(1);
+                        });
+                      },
+                      icon: selectedIndex == 1
+                          ? Image.asset(
+                              "assets/icons/document_active.png",
+                              width: 25,
+                              color: Theme.of(context).iconTheme.color,
+                            )
+                          : Image.asset(
+                              "assets/icons/document.png",
+                              width: 25,
+                              color: Theme.of(context).iconTheme.color,
+                            )),
+                  IconButton(
+                      onPressed: () {
+                        setState(() {
+                          selectedIndex = 2;
+                          tabController.animateTo(2);
+                        });
+                      },
+                      icon: selectedIndex == 2
+                          ? Image.asset(
+                              "assets/icons/chart_active.png",
+                              width: 25,
+                              color: Theme.of(context).iconTheme.color,
+                            )
+                          : Image.asset(
+                              "assets/icons/chart.png",
+                              width: 25,
+                              color: Theme.of(context).iconTheme.color,
+                            )),
+                  IconButton(
+                      onPressed: () {
+                        setState(() {
+                          selectedIndex = 3;
+                          tabController.animateTo(3);
+                        });
+                      },
+                      icon: selectedIndex == 3
+                          ? Image.asset(
+                              "assets/icons/pie-chart_active.png",
+                              width: 25,
+                              color: Theme.of(context).iconTheme.color,
+                            )
+                          : Image.asset(
+                              "assets/icons/pie-chart.png",
+                              width: 25,
+                              color: Theme.of(context).iconTheme.color,
+                            )),
+                  IconButton(
+                      onPressed: () {
+                        setState(() {
+                          selectedIndex = 4;
+                          tabController.animateTo(4);
+                        });
+                      },
+                      icon: selectedIndex == 4
+                          ? Image.asset(
+                              "assets/icons/settings_active.png",
+                              width: 25,
+                              color: Theme.of(context).iconTheme.color,
+                            )
+                          : Image.asset(
+                              "assets/icons/settings.png",
+                              width: 25,
+                              color: Theme.of(context).iconTheme.color,
+                            )),
+                ]),
+          ),
+        ],
       ),
     );
   }

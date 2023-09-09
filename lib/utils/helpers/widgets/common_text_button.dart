@@ -20,9 +20,9 @@ class CommonTextButton extends StatelessWidget {
         child: Text(
           label,
           style: const TextStyle(
-              color: StockAppColors.blue,
               fontWeight: FontWeight.w500,
-              fontSize: 14),
+              fontSize: 14,
+              color: StockAppColors.blue),
         ),
       ),
     );

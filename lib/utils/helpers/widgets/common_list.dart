@@ -49,26 +49,24 @@ class CommonList extends StatelessWidget {
                   children: [
                     SizedBox(
                       width: 100,
-                      child: Text(
-                        name.toUpperCase(),
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                          color: StockAppColors.textBlack,
-                        ),
-                      ),
+                      child: Text(name.toUpperCase(),
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500)),
                     ),
                     SizedBox(
                       width: 150,
-                      child: Text(
-                        description,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: StockAppColors.textGrey),
-                      ),
+                      child: Text(description,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                              color: Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? StockAppColors.textGrey
+                                  : StockAppColors.textDarkGrey)),
                     )
                   ],
                 ),
@@ -101,7 +99,13 @@ class CommonList extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    CommonText(text: value.toString()),
+                    CommonText(
+                        text: value.toString(),
+                        fontColor: Theme.of(context).primaryColor,
+                        labelColor:
+                            Theme.of(context).brightness == Brightness.dark
+                                ? StockAppColors.textGrey
+                                : StockAppColors.textDarkGrey),
                     CommonIconText(
                       icon: percentage < 1
                           ? "assets/icons/down.png"

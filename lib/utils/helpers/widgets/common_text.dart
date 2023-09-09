@@ -1,4 +1,3 @@
-// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:stock_app/constants/colors.dart';
 
@@ -11,7 +10,7 @@ class CommonText extends StatelessWidget {
       this.fontColor = StockAppColors.textBlack,
       this.labelSize = 12,
       this.labelWeight = FontWeight.w400,
-      this.labelColor = StockAppColors.textGrey,
+      this.labelColor = StockAppColors.textDarkGrey,
       this.gap = 1,
       this.letterSpacing = -0.5});
 
@@ -32,11 +31,15 @@ class CommonText extends StatelessWidget {
         Text(
           '\$',
           style: TextStyle(
-              fontSize: labelSize, fontWeight: labelWeight, color: labelColor),
+            fontSize: labelSize,
+            fontWeight: labelWeight,
+            color: labelColor,
+          ),
         ),
         SizedBox(width: gap),
         Text(
           text,
+          // style: Theme.of(context).textTheme.bodyLarge,
           style: TextStyle(
               fontSize: fontSize,
               fontWeight: FontWeight.w600,

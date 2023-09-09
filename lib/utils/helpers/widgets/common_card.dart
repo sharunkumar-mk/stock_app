@@ -13,13 +13,15 @@ class CommonCard extends StatelessWidget {
       required this.description,
       required this.value,
       required this.percentage,
-      required this.graphData});
+      required this.graphData,
+      this.borderColor = StockAppColors.lightGrey});
   final String logo;
   final String name;
   final String description;
   final double value;
   final double percentage;
   final List<FlSpot> graphData;
+  final Color borderColor;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class CommonCard extends StatelessWidget {
           height: 169,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              border: Border.all(width: 1.5, color: StockAppColors.lightGrey)),
+              border: Border.all(width: 1.5, color: borderColor)),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -59,23 +61,24 @@ class CommonCard extends StatelessWidget {
                       children: [
                         SizedBox(
                           width: 69,
-                          child: Text(
-                            name.toUpperCase(),
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: StockAppColors.textBlack,
-                            ),
-                          ),
+                          child: Text(name.toUpperCase(),
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  color: Theme.of(context).primaryColor,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500)),
                         ),
                         SizedBox(
                           width: 78,
-                          child: Text(
-                            description,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                                fontSize: 12, color: StockAppColors.textGrey),
-                          ),
+                          child: Text(description,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: Theme.of(context).brightness ==
+                                          Brightness.dark
+                                      ? StockAppColors.textGrey
+                                      : StockAppColors.textDarkGrey)),
                         )
                       ],
                     )
@@ -103,6 +106,11 @@ class CommonCard extends StatelessWidget {
                       text: value.toString(),
                       fontSize: 16,
                       labelSize: 10,
+                      fontColor: Theme.of(context).primaryColor,
+                      labelColor:
+                          Theme.of(context).brightness == Brightness.dark
+                              ? StockAppColors.textGrey
+                              : StockAppColors.textDarkGrey,
                     ),
                     CommonIconText(
                         icon: percentage < 1

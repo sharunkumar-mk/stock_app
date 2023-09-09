@@ -32,7 +32,7 @@ class _SingleStockPageState extends State<SingleStockPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        extendBody: true,
         appBar: AppBar(
           automaticallyImplyLeading: false,
           centerTitle: false,
@@ -44,6 +44,7 @@ class _SingleStockPageState extends State<SingleStockPage> {
                 "assets/icons/back.png",
                 width: 28,
                 height: 28,
+                color: Theme.of(context).primaryColor,
               )),
           actions: [
             Padding(
@@ -61,6 +62,7 @@ class _SingleStockPageState extends State<SingleStockPage> {
                       onPressed: () {},
                       icon: Image.asset(
                         "assets/icons/menu.png",
+                        color: Theme.of(context).primaryColor,
                         width: 28,
                         height: 28,
                       )),
@@ -100,11 +102,10 @@ class _SingleStockPageState extends State<SingleStockPage> {
                             child: Text(
                               widget.data['name'].toUpperCase(),
                               overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.w500,
-                                color: StockAppColors.textBlack,
-                              ),
+                              style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.w500,
+                                  color: Theme.of(context).primaryColor),
                             ),
                           ),
                           SizedBox(
@@ -112,10 +113,13 @@ class _SingleStockPageState extends State<SingleStockPage> {
                             child: Text(
                               widget.data['description'],
                               overflow: TextOverflow.ellipsis,
-                              style: const TextStyle(
+                              style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,
-                                  color: StockAppColors.textGrey),
+                                  color: Theme.of(context).brightness ==
+                                          Brightness.dark
+                                      ? StockAppColors.textGrey
+                                      : StockAppColors.textDarkGrey),
                             ),
                           )
                         ],
@@ -126,24 +130,40 @@ class _SingleStockPageState extends State<SingleStockPage> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       CommonText(
-                        text: widget.data['value'].toString(),
-                        fontSize: 28,
-                        fontWeight: FontWeight.w500,
-                        labelSize: 20,
-                      ),
-                      const Row(
+                          text: widget.data['value'].toString(),
+                          fontSize: 28,
+                          fontWeight: FontWeight.w500,
+                          labelSize: 20,
+                          labelColor:
+                              Theme.of(context).brightness == Brightness.dark
+                                  ? StockAppColors.textGrey
+                                  : StockAppColors.textDarkGrey,
+                          fontColor: Theme.of(context).primaryColor),
+                      Row(
                         children: [
-                          CommonIconText(
+                          const CommonIconText(
                             text: "0.42%",
                           ),
-                          Text("(\$",
-                              style: TextStyle(
-                                  fontSize: 14, fontWeight: FontWeight.w400)),
-                          SizedBox(width: 1),
+                          Text(
+                            "(\$",
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                                color: Theme.of(context).brightness ==
+                                        Brightness.dark
+                                    ? StockAppColors.textGrey
+                                    : StockAppColors.textDarkGrey),
+                          ),
+                          const SizedBox(width: 1),
                           Text(
                             "6.25)",
                             style: TextStyle(
-                                fontSize: 14, fontWeight: FontWeight.w400),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                                color: Theme.of(context).brightness ==
+                                        Brightness.dark
+                                    ? StockAppColors.textGrey
+                                    : StockAppColors.textDarkGrey),
                           ),
                         ],
                       )
@@ -152,9 +172,9 @@ class _SingleStockPageState extends State<SingleStockPage> {
                 ],
               ),
             ),
-            const Divider(
+            Divider(
               thickness: 6,
-              color: StockAppColors.greyDark,
+              color: Theme.of(context).dividerColor,
             ),
             Column(
               children: [
@@ -166,7 +186,9 @@ class _SingleStockPageState extends State<SingleStockPage> {
                       width: 300,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
-                          color: StockAppColors.whiteBackground),
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? StockAppColors.black
+                              : StockAppColors.whiteBackground),
                       child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -177,7 +199,10 @@ class _SingleStockPageState extends State<SingleStockPage> {
                                   child: Material(
                                     color: selectedIndex ==
                                             calenderData.indexOf(item)
-                                        ? Colors.white
+                                        ? Theme.of(context).brightness ==
+                                                Brightness.dark
+                                            ? StockAppColors.blackDark
+                                            : Colors.white
                                         : Colors.transparent,
                                     borderRadius: BorderRadius.circular(4),
                                     child: InkWell(
@@ -199,7 +224,11 @@ class _SingleStockPageState extends State<SingleStockPage> {
                                           style: TextStyle(
                                               color: selectedIndex ==
                                                       calenderData.indexOf(item)
-                                                  ? StockAppColors.textBlack
+                                                  ? Theme.of(context)
+                                                              .brightness ==
+                                                          Brightness.dark
+                                                      ? StockAppColors.white
+                                                      : StockAppColors.textBlack
                                                   : StockAppColors
                                                       .textLightkGrey),
                                         )),
@@ -214,10 +243,15 @@ class _SingleStockPageState extends State<SingleStockPage> {
                       height: 36,
                       width: 40,
                       decoration: BoxDecoration(
-                        color: StockAppColors.whiteBackground,
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? StockAppColors.black
+                            : StockAppColors.white,
                         borderRadius: BorderRadius.circular(4),
                       ),
-                      child: Image.asset("assets/icons/resize.png"),
+                      child: Image.asset(
+                        "assets/icons/resize.png",
+                        color: Theme.of(context).primaryColor,
+                      ),
                     ),
                   ],
                 ),
@@ -255,7 +289,9 @@ class _SingleStockPageState extends State<SingleStockPage> {
                     height: 36,
                     width: 40,
                     decoration: BoxDecoration(
-                      color: StockAppColors.whiteBackground,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? StockAppColors.black
+                          : StockAppColors.white,
                       borderRadius: BorderRadius.circular(4),
                     ),
                     child: Image.asset("assets/icons/candlesticks.png"),
@@ -263,9 +299,9 @@ class _SingleStockPageState extends State<SingleStockPage> {
                 ],
               ),
             ),
-            const Divider(
+            Divider(
               thickness: 2,
-              color: StockAppColors.greyDark,
+              color: Theme.of(context).dividerColor,
             ),
             const SizedBox(height: 24),
             const CommonTabBar(horizontalPadding: 22, widgetOptions: [
@@ -288,6 +324,13 @@ class _SingleStockPageState extends State<SingleStockPage> {
                       fontSize: 16,
                       radius: 32,
                       padding: 20,
+                      textColor: Theme.of(context).brightness == Brightness.dark
+                          ? StockAppColors.black
+                          : Colors.white,
+                      backgroundColor:
+                          Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white
+                              : StockAppColors.black,
                       onButtonPressed: () {
                         Navigator.pushNamed(context, buyStockScreen,
                             arguments: widget.data);

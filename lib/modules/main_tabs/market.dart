@@ -49,14 +49,14 @@ class _MarketPageState extends State<MarketPage>
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+        title: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Text(
             'Market',
             style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
-                color: StockAppColors.textBlack),
+                color: Theme.of(context).primaryColor),
           ),
         ),
         centerTitle: false,
@@ -69,6 +69,7 @@ class _MarketPageState extends State<MarketPage>
                   "assets/icons/search.png",
                   width: 28,
                   height: 28,
+                  color: Theme.of(context).primaryColor,
                 )),
           ),
         ],
@@ -76,11 +77,15 @@ class _MarketPageState extends State<MarketPage>
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(children: [
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CommonSubText(label: "Watchlist"),
-              CommonTextButton(label: "Edit list")
+              CommonLabel(
+                  label: "Watchlist",
+                  fontColor: Theme.of(context).brightness == Brightness.dark
+                      ? StockAppColors.textGrey
+                      : StockAppColors.textDarkGrey),
+              const CommonTextButton(label: "Edit list")
             ],
           ),
           SingleChildScrollView(

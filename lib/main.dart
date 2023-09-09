@@ -1,34 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:stock_app/config/routes.dart';
 import 'package:stock_app/constants/routes_path.dart';
+import 'package:stock_app/constants/secure_storage_path.dart';
+import 'package:stock_app/providers/theme_provider.dart';
+import 'package:stock_app/utils/helpers/widgets/themes.dart';
 
 void main() {
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-  ]);
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerStatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  MyAppState createState() => MyAppState();
+}
+
+class MyAppState extends ConsumerState<MyApp> {
+  FlutterSecureStorage storage = const FlutterSecureStorage();
+
+  getThemeMode() async {
+    final darkMode = await storage.read(key: SecureStoragePath.themeMode);
+    if (darkMode == 'true') {
+      ref.read(themeNotifierProvider.notifier).toggleTheme();
+    }
+  }
+
+  @override
+  void initState() {
+    getThemeMode();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          textTheme: GoogleFonts.interTextTheme(),
-          scaffoldBackgroundColor: Colors.transparent,
-          navigationBarTheme:
-              const NavigationBarThemeData(backgroundColor: Colors.amber),
-          appBarTheme:
-              const AppBarTheme(color: Colors.transparent, elevation: 0),
+    final isDarkTheme = ref.watch(themeNotifierProvider);
+    final appTheme = AppTheme();
+    return Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              fit: BoxFit.fill,
+              image: isDarkTheme
+                  ? const AssetImage(
+                      "assets/images/bg_black.png",
+                    )
+                  : const AssetImage(
+                      "assets/images/bg_white.png",
+                    )),
         ),
-        debugShowCheckedModeBanner: false,
-        onGenerateRoute: Routes.generateRoute,
-        initialRoute: dashboardScreen);
+        child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: isDarkTheme ? appTheme.darkTheme : appTheme.lightTheme,
+          debugShowCheckedModeBanner: false,
+          onGenerateRoute: Routes.generateRoute,
+          initialRoute: dashboardScreen,
+        ));
   }
 }

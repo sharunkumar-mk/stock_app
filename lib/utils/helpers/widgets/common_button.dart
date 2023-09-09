@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stock_app/constants/colors.dart';
 
 class CommonButton extends StatelessWidget {
   const CommonButton(
@@ -38,15 +39,13 @@ class CommonButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onButtonPressed,
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(
-                hasBorder! ? Colors.white : backgroundColor),
-            overlayColor: MaterialStateProperty.all(
-                hasBorder! ? Colors.grey.shade100 : null),
+            backgroundColor: MaterialStateProperty.all(backgroundColor),
+            // overlayColor: MaterialStateProperty.all(null),
             shape: !hasBorder!
                 ? MaterialStateProperty.all(RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(radius!)))
                 : MaterialStateProperty.all(RoundedRectangleBorder(
-                    side: const BorderSide(color: Colors.black),
+                    side: const BorderSide(color: StockAppColors.textGrey),
                     borderRadius: BorderRadius.circular(24.0)))),
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: padding!),

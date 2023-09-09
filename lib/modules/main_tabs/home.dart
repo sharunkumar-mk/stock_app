@@ -56,14 +56,22 @@ class _HomePageState extends State<HomePage> {
                 "assets/icons/group.png",
                 height: 44,
                 width: 38,
+                color: Theme.of(context).primaryColor,
               ),
             ),
-            Text(
-              "Investo",
-              style: GoogleFonts.manjari(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700,
-                  color: StockAppColors.textBlack),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 10),
+                Text(
+                  "Investo",
+                  style: GoogleFonts.manjari(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w700,
+                      color: Theme.of(context).primaryColor,
+                      letterSpacing: 2),
+                ),
+              ],
             )
           ],
         ),
@@ -78,6 +86,7 @@ class _HomePageState extends State<HomePage> {
                       "assets/icons/notification.png",
                       width: 28,
                       height: 28,
+                      color: Theme.of(context).primaryColor,
                     )),
                 IconButton(
                     onPressed: () {},
@@ -85,6 +94,7 @@ class _HomePageState extends State<HomePage> {
                       "assets/icons/search.png",
                       width: 28,
                       height: 28,
+                      color: Theme.of(context).primaryColor,
                     )),
               ],
             ),
@@ -95,34 +105,48 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            const Row(
+            Row(
               children: [
                 Padding(
-                    padding: EdgeInsets.only(top: 26, bottom: 8),
-                    child: CommonSubText(label: "Your net worth")),
+                    padding: const EdgeInsets.only(top: 26, bottom: 8),
+                    child: CommonLabel(
+                      label: "Your net worth",
+                      fontColor: Theme.of(context).brightness == Brightness.dark
+                          ? StockAppColors.textGrey
+                          : StockAppColors.textDarkGrey,
+                    )),
               ],
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CommonText(
-                  text: "15,901.24",
-                  fontWeight: FontWeight.w600,
-                  fontSize: 40,
-                  labelSize: 24,
-                  labelWeight: FontWeight.w400,
-                ),
+                    text: "15,901.24",
+                    fontWeight: FontWeight.w600,
+                    fontSize: 40,
+                    labelSize: 24,
+                    labelWeight: FontWeight.w400,
+                    fontColor: Theme.of(context).primaryColor,
+                    labelColor: Theme.of(context).brightness == Brightness.dark
+                        ? StockAppColors.textGrey
+                        : StockAppColors.textDarkGrey),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    CommonIconText(text: '0.42%'),
+                    const CommonIconText(text: '0.42%'),
                     CommonText(
                       text: "66.25",
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
-                      fontColor: StockAppColors.textGrey,
+                      fontColor: Theme.of(context).brightness == Brightness.dark
+                          ? StockAppColors.textGrey
+                          : StockAppColors.textDarkGrey,
                       gap: 1,
                       labelSize: 14,
+                      labelColor:
+                          Theme.of(context).brightness == Brightness.dark
+                              ? StockAppColors.textGrey
+                              : StockAppColors.textDarkGrey,
                     )
                   ],
                 )
@@ -135,16 +159,30 @@ class _HomePageState extends State<HomePage> {
                   child: CommonButton(
                     onButtonPressed: () {},
                     hasIcon: true,
+                    hasBorder: true,
                     horizontalPadding: 0,
                     verticalPadding: 0,
+                    backgroundColor:
+                        Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : StockAppColors.black,
                     labelWithIcon: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset("assets/icons/upload.png"),
+                        Image.asset("assets/icons/upload.png",
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? StockAppColors.black
+                                    : Colors.white),
                         const SizedBox(width: 4),
-                        const Text(
+                        Text(
                           "Deposit",
-                          style: TextStyle(fontSize: 14, color: Colors.white),
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? StockAppColors.black
+                                  : Colors.white),
                         )
                       ],
                     ),
@@ -156,15 +194,29 @@ class _HomePageState extends State<HomePage> {
                     onButtonPressed: () {},
                     hasIcon: true,
                     hasBorder: true,
-                    backgroundColor: Colors.white,
+                    backgroundColor:
+                        Theme.of(context).brightness == Brightness.dark
+                            ? StockAppColors.black
+                            : Colors.white,
                     labelWithIcon: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset("assets/icons/download.png"),
+                        Image.asset(
+                          "assets/icons/download.png",
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white
+                              : StockAppColors.black,
+                        ),
                         const SizedBox(width: 4),
-                        const Text(
+                        Text(
                           "Withdraw",
-                          style: TextStyle(fontSize: 14, color: Colors.black),
+                          style: TextStyle(
+                            fontSize: 14,
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? Colors.white
+                                    : StockAppColors.black,
+                          ),
                         )
                       ],
                     ),
@@ -173,11 +225,16 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             const SizedBox(height: 32),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CommonSubText(label: "My portfolio"),
-                CommonTextButton(label: "View all")
+                CommonLabel(
+                  label: "My portfolio",
+                  fontColor: Theme.of(context).brightness == Brightness.dark
+                      ? StockAppColors.textGrey
+                      : StockAppColors.textDarkGrey,
+                ),
+                const CommonTextButton(label: "View all")
               ],
             ),
             SingleChildScrollView(
@@ -186,6 +243,10 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   for (var item in portfolioData)
                     CommonCard(
+                      borderColor:
+                          Theme.of(context).brightness == Brightness.dark
+                              ? StockAppColors.borderBlack
+                              : StockAppColors.lightGrey,
                       logo: item['logo'],
                       name: item['name'],
                       percentage: item['percentage'],
@@ -207,11 +268,16 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CommonSubText(label: "Trending"),
-                CommonTextButton(label: "View market")
+                CommonLabel(
+                  label: "Trending",
+                  fontColor: Theme.of(context).brightness == Brightness.dark
+                      ? StockAppColors.textGrey
+                      : StockAppColors.textDarkGrey,
+                ),
+                const CommonTextButton(label: "View market")
               ],
             ),
             const Expanded(

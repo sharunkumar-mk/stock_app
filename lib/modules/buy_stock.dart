@@ -22,7 +22,6 @@ class _BuyStockPageState extends State<BuyStockPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading: false,
@@ -34,22 +33,27 @@ class _BuyStockPageState extends State<BuyStockPage> {
               "assets/icons/back.png",
               width: 28,
               height: 28,
+              color: Theme.of(context).primaryColor,
             )),
         title: Column(
           children: [
-            const Text(
+            Text(
               'Buy stock',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+              style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                  color: Theme.of(context).primaryColor),
             ),
-            CommonSubText(
+            CommonLabel(
               label: widget.data['description'],
               fontSize: 16,
-              fontColor: StockAppColors.textDarkGrey,
+              fontColor: StockAppColors.textGrey,
             )
           ],
         ),
         actions: [
           IconButton(
+              color: Theme.of(context).primaryColor,
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -57,6 +61,7 @@ class _BuyStockPageState extends State<BuyStockPage> {
                 "assets/icons/help.png",
                 width: 32,
                 height: 32,
+                color: Theme.of(context).primaryColor,
               ))
         ],
       ),
@@ -67,7 +72,9 @@ class _BuyStockPageState extends State<BuyStockPage> {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? StockAppColors.black
+                    : StockAppColors.whiteBackground,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Padding(
@@ -81,20 +88,20 @@ class _BuyStockPageState extends State<BuyStockPage> {
                           width: 60,
                           height: 60,
                           decoration: BoxDecoration(
-                              color: StockAppColors.lightGrey,
+                              color: Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? StockAppColors.blackBg
+                                  : StockAppColors.lightGrey,
                               borderRadius: BorderRadius.circular(50)),
-                          child: Image.asset(
-                            widget.data['logo'],
-                            color: Colors.black,
-                          ),
+                          child: Image.asset(widget.data['logo'],
+                              color: Theme.of(context).primaryColor),
                         ),
                         const SizedBox(width: 10),
-                        CommonSubText(
-                          label: widget.data['name'],
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
-                          fontColor: StockAppColors.textBlack,
-                        )
+                        CommonLabel(
+                            label: widget.data['name'],
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            fontColor: Theme.of(context).primaryColor)
                       ],
                     ),
                     Row(
@@ -102,6 +109,7 @@ class _BuyStockPageState extends State<BuyStockPage> {
                         CommonText(
                           text: widget.data['value'].toString(),
                           fontWeight: FontWeight.w400,
+                          fontColor: Theme.of(context).primaryColor,
                         ),
                         const SizedBox(
                           width: 10,
@@ -110,7 +118,10 @@ class _BuyStockPageState extends State<BuyStockPage> {
                           width: 34,
                           height: 34,
                           decoration: BoxDecoration(
-                              color: StockAppColors.lightGrey,
+                              color: Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? StockAppColors.textGrey
+                                  : StockAppColors.lightGrey,
                               borderRadius: BorderRadius.circular(50)),
                           child: Image.asset(
                             "assets/icons/reload.png",
@@ -139,6 +150,13 @@ class _BuyStockPageState extends State<BuyStockPage> {
               children: [
                 Expanded(
                   child: CommonButton(
+                    textColor: Theme.of(context).brightness == Brightness.dark
+                        ? StockAppColors.black
+                        : Colors.white,
+                    backgroundColor:
+                        Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : StockAppColors.black,
                     padding: 20,
                     radius: 32,
                     fontSize: 16,

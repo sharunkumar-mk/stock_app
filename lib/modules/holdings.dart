@@ -62,47 +62,53 @@ class _HoldingsPageState extends State<HoldingsPage> {
                 child: SizedBox(height: 280, child: CommonCircularChart()),
               ),
             ),
-            const Positioned(
+            Positioned(
               top: 100,
               left: 120,
               child: Column(
                 children: [
                   CommonText(
-                    text: "15,901.24",
-                    fontSize: 28,
-                    fontWeight: FontWeight.w600,
-                    labelSize: 20,
-                  ),
+                      text: "15,901.24",
+                      fontSize: 28,
+                      fontWeight: FontWeight.w600,
+                      labelSize: 20,
+                      fontColor: Theme.of(context).primaryColor),
                   Row(
                     children: [
-                      CommonIconText(
+                      const CommonIconText(
                         text: "0.42%",
                       ),
-                      Text("(\$", style: TextStyle(fontSize: 16)),
-                      SizedBox(width: 1),
+                      const Text("(\$", style: TextStyle(fontSize: 16)),
+                      const SizedBox(width: 1),
                       Text(
                         "6.25)",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? StockAppColors.textGrey
+                              : StockAppColors.textDarkGrey,
+                        ),
                       ),
                     ],
                   )
                 ],
               ),
             ),
-            Positioned(
+            Positioned.fill(
               top: 180,
               child: Container(
                 decoration: BoxDecoration(
-                    color: StockAppColors.whiteBackground,
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? StockAppColors.blackBg
+                        : StockAppColors.whiteBackground,
                     borderRadius: BorderRadius.circular(12)),
-                height: 250,
-                width: MediaQuery.of(context).size.width / 1.1,
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.vertical,
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         for (var item in holdingData)
                           Column(
@@ -114,9 +120,9 @@ class _HoldingsPageState extends State<HoldingsPage> {
                                 value: item['value'],
                                 color: item['color'],
                               ),
-                              const Divider(
+                              Divider(
                                   thickness: 2,
-                                  color: StockAppColors.greyBorder),
+                                  color: Theme.of(context).dividerColor),
                             ],
                           ),
                       ],
@@ -128,7 +134,7 @@ class _HoldingsPageState extends State<HoldingsPage> {
           ],
         ),
         const SizedBox(height: 20),
-        const Row(
+        Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
@@ -137,6 +143,9 @@ class _HoldingsPageState extends State<HoldingsPage> {
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
                 letterSpacing: -0.5,
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? StockAppColors.textGrey
+                    : StockAppColors.textDarkGrey,
               ),
             ),
             Text(
@@ -145,6 +154,9 @@ class _HoldingsPageState extends State<HoldingsPage> {
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
                 letterSpacing: -0.5,
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? StockAppColors.textGrey
+                    : StockAppColors.textDarkGrey,
               ),
             ),
             Text(
@@ -153,11 +165,14 @@ class _HoldingsPageState extends State<HoldingsPage> {
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
                 letterSpacing: -0.5,
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? StockAppColors.textGrey
+                    : StockAppColors.textDarkGrey,
               ),
             ),
           ],
         ),
-        const Divider(thickness: 2, color: StockAppColors.greyBorder),
+        Divider(thickness: 2, color: Theme.of(context).dividerColor),
         const Expanded(child: TrendingPage())
       ],
     );

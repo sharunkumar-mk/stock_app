@@ -37,6 +37,8 @@ dependencies:
   google_fonts: ^5.1.0
   fl_chart: ^0.63.0
   circular_chart_flutter: ^0.0.2
+  flutter_riverpod: ^2.4.0
+  flutter_secure_storage: ^9.0.0
 
 dev_dependencies:
   flutter_test:

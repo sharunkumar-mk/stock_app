@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:stock_app/constants/routes_path.dart';
-import 'package:stock_app/modules/single_stock.dart';
 import 'package:stock_app/utils/helpers/widgets/common_list.dart';
 
 class TrendingPage extends StatefulWidget {
@@ -66,6 +65,7 @@ class _TrendingPageState extends State<TrendingPage> {
   onButtonpressed({required String type, dynamic data}) {
     if (type == 'OPEN_STOCK') {
       Navigator.pushNamed(context, singleStockScreen, arguments: data);
+      // Navigator.pushNamed(context, settingsScreen);
     }
   }
 

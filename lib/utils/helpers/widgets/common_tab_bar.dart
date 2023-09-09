@@ -33,7 +33,9 @@ class _CommonTabBarState extends State<CommonTabBar>
               height: 36,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
-                  color: StockAppColors.whiteBackground),
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? StockAppColors.black
+                      : StockAppColors.whiteBackground),
               child: Row(
                 children: [
                   Expanded(
@@ -47,7 +49,10 @@ class _CommonTabBarState extends State<CommonTabBar>
                                 child: Material(
                                   color: selectedIndex ==
                                           widget.widgetLabels.indexOf(labels)
-                                      ? Colors.white
+                                      ? Theme.of(context).brightness ==
+                                              Brightness.dark
+                                          ? StockAppColors.blackDark
+                                          : Colors.white
                                       : Colors.transparent,
                                   borderRadius: BorderRadius.circular(6),
                                   child: InkWell(
@@ -73,7 +78,11 @@ class _CommonTabBarState extends State<CommonTabBar>
                                             color: selectedIndex ==
                                                     widget.widgetLabels
                                                         .indexOf(labels)
-                                                ? StockAppColors.textBlack
+                                                ? Theme.of(context)
+                                                            .brightness ==
+                                                        Brightness.dark
+                                                    ? StockAppColors.white
+                                                    : StockAppColors.textBlack
                                                 : StockAppColors
                                                     .textLightkGrey),
                                       )),

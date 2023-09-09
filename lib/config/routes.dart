@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stock_app/constants/routes_path.dart';
 import 'package:stock_app/modules/buy_stock.dart';
 import 'package:stock_app/modules/dashboard.dart';
+import 'package:stock_app/modules/main_tabs/settings.dart';
 import 'package:stock_app/modules/single_stock.dart';
 
 class Routes {
@@ -22,6 +23,11 @@ class Routes {
         dynamic data = settings.arguments as dynamic;
         return MaterialPageRoute(
           builder: (_) => BuyStockPage(data: data),
+        );
+
+      case settingsScreen:
+        return MaterialPageRoute(
+          builder: (_) => const SettingsPage(),
         );
 
       default:

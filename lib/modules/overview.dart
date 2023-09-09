@@ -12,7 +12,13 @@ class OverviewPage extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const CommonSubText(label: "Performance", fontSize: 16),
+            CommonLabel(
+              label: "Performance",
+              fontSize: 16,
+              fontColor: Theme.of(context).brightness == Brightness.dark
+                  ? StockAppColors.textGrey
+                  : StockAppColors.textDarkGrey,
+            ),
             const SizedBox(width: 4),
             Image.asset("assets/icons/info.png")
           ],
@@ -20,36 +26,41 @@ class OverviewPage extends StatelessWidget {
         const SizedBox(height: 16),
         Column(
           children: [
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CommonSubText(
+                    CommonLabel(
                       label: "Today’s Low",
                       fontSize: 12,
+                      fontColor: Theme.of(context).brightness == Brightness.dark
+                          ? StockAppColors.textGrey
+                          : StockAppColors.textDarkGrey,
                     ),
-                    CommonSubText(
+                    CommonLabel(
                         label: "36.50",
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
-                        fontColor: StockAppColors.textBlack)
+                        fontColor: Theme.of(context).primaryColor)
                   ],
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CommonSubText(
-                      label: "Today’s High",
-                      fontSize: 12,
-                    ),
-                    CommonSubText(
-                      label: "37.50",
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                      fontColor: StockAppColors.textBlack,
-                    )
+                    CommonLabel(
+                        label: "Today’s High",
+                        fontSize: 12,
+                        fontColor:
+                            Theme.of(context).brightness == Brightness.dark
+                                ? StockAppColors.textGrey
+                                : StockAppColors.textDarkGrey),
+                    CommonLabel(
+                        label: "37.50",
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        fontColor: Theme.of(context).primaryColor)
                   ],
                 ),
               ],
@@ -58,8 +69,10 @@ class OverviewPage extends StatelessWidget {
               children: [
                 Container(
                   margin: const EdgeInsets.only(top: 8),
-                  decoration: const BoxDecoration(
-                      color: StockAppColors.whiteBackground),
+                  decoration: BoxDecoration(
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? StockAppColors.blackLight
+                          : StockAppColors.whiteBackground),
                   height: 4,
                 ),
                 Image.asset(
@@ -72,37 +85,41 @@ class OverviewPage extends StatelessWidget {
         const SizedBox(height: 12),
         Column(
           children: [
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CommonSubText(
-                      label: "52 Week Low",
-                      fontSize: 12,
-                    ),
-                    CommonSubText(
-                      label: "25.05",
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                      fontColor: StockAppColors.textBlack,
-                    )
+                    CommonLabel(
+                        label: "52 Week Low",
+                        fontSize: 12,
+                        fontColor:
+                            Theme.of(context).brightness == Brightness.dark
+                                ? StockAppColors.textGrey
+                                : StockAppColors.textDarkGrey),
+                    CommonLabel(
+                        label: "25.05",
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        fontColor: Theme.of(context).primaryColor)
                   ],
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CommonSubText(
-                      label: "52 Week High",
-                      fontSize: 12,
-                    ),
-                    CommonSubText(
-                      label: "41.90",
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                      fontColor: StockAppColors.textBlack,
-                    )
+                    CommonLabel(
+                        label: "52 Week High",
+                        fontSize: 12,
+                        fontColor:
+                            Theme.of(context).brightness == Brightness.dark
+                                ? StockAppColors.textGrey
+                                : StockAppColors.textDarkGrey),
+                    CommonLabel(
+                        label: "41.90",
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        fontColor: Theme.of(context).primaryColor)
                   ],
                 ),
               ],
@@ -111,8 +128,10 @@ class OverviewPage extends StatelessWidget {
               children: [
                 Container(
                   margin: const EdgeInsets.only(top: 8),
-                  decoration: const BoxDecoration(
-                      color: StockAppColors.whiteBackground),
+                  decoration: BoxDecoration(
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? StockAppColors.blackLight
+                          : StockAppColors.whiteBackground),
                   height: 4,
                 ),
                 Align(
