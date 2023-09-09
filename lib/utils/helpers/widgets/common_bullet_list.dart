@@ -20,10 +20,8 @@ class CommonBulletList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
               width: 6,
@@ -38,16 +36,20 @@ class CommonBulletList extends StatelessWidget {
               children: [
                 Text(
                   name,
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      letterSpacing: -1.5),
+                      letterSpacing: -1.5,
+                      color: Theme.of(context).primaryColor),
                 ),
                 Text(
                   description,
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? StockAppColors.textGrey
+                          : StockAppColors.textDarkGrey,
                       letterSpacing: -0.2),
                 )
               ],
@@ -59,17 +61,20 @@ class CommonBulletList extends StatelessWidget {
           children: [
             Text(
               '$percentage%',
-              style: const TextStyle(
+              style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
-                  letterSpacing: -1.5),
+                  letterSpacing: -1.5,
+                  color: Theme.of(context).primaryColor),
             ),
             CommonText(
               text: value.toString(),
               fontSize: 14,
               fontWeight: FontWeight.w400,
               gap: 1,
-              fontColor: StockAppColors.textGrey,
+              fontColor: Theme.of(context).brightness == Brightness.dark
+                  ? StockAppColors.textGrey
+                  : StockAppColors.textDarkGrey,
             )
           ],
         )
