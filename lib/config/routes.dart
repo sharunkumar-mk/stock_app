@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:stock_app/constants/routes_path.dart';
 import 'package:stock_app/modules/buy_stock.dart';
 import 'package:stock_app/modules/dashboard.dart';
+import 'package:stock_app/modules/landing.dart';
 import 'package:stock_app/modules/main_tabs/settings.dart';
 import 'package:stock_app/modules/single_stock.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case landingScreen:
+        return MaterialPageRoute(
+          builder: (_) => const LandingPage(),
+        );
+
       case dashboardScreen:
         return MaterialPageRoute(
           builder: (_) => const DashboardPage(),
@@ -23,11 +29,6 @@ class Routes {
         dynamic data = settings.arguments as dynamic;
         return MaterialPageRoute(
           builder: (_) => BuyStockPage(data: data),
-        );
-
-      case settingsScreen:
-        return MaterialPageRoute(
-          builder: (_) => const SettingsPage(),
         );
 
       default:

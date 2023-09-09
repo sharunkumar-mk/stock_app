@@ -17,7 +17,7 @@ class AppTheme {
         const AppBarTheme(backgroundColor: Colors.transparent, elevation: 0),
     scaffoldBackgroundColor: Colors.transparent,
     brightness: Brightness.dark,
-    primaryColor: StockAppColors.whiteBackground,
+    primaryColor: StockAppColors.white,
     dividerColor: StockAppColors.divderDark,
   );
 }

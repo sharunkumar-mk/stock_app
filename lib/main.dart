@@ -43,7 +43,7 @@ class MyAppState extends ConsumerState<MyApp> {
       theme: isDarkTheme ? appTheme.darkTheme : appTheme.lightTheme,
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Routes.generateRoute,
-      initialRoute: dashboardScreen,
+      initialRoute: landingScreen,
     );
   }
 }
