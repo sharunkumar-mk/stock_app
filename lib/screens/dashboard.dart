@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:stock_app/modules/main_tabs/analytics.dart';
-import 'package:stock_app/modules/main_tabs/home.dart';
-import 'package:stock_app/modules/main_tabs/market.dart';
-import 'package:stock_app/modules/main_tabs/portfolio.dart';
-import 'package:stock_app/modules/main_tabs/settings.dart';
+import 'package:stock_app/screens/tabs/analytics.dart';
+import 'package:stock_app/screens/tabs/home.dart';
+import 'package:stock_app/screens/tabs/market.dart';
+import 'package:stock_app/screens/tabs/portfolio.dart';
+import 'package:stock_app/screens/tabs/settings.dart';
 import 'package:stock_app/providers/theme_provider.dart';
 
 class DashboardPage extends ConsumerStatefulWidget {

@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:stock_app/constants/colors.dart';
 import 'package:stock_app/constants/routes_path.dart';
 import 'package:stock_app/providers/theme_provider.dart';
-import 'package:stock_app/utils/helpers/widgets/common_button.dart';
+import 'package:stock_app/widgets/common_button.dart';
 
 class LandingPage extends ConsumerStatefulWidget {
   const LandingPage({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stock_app/constants/routes_path.dart';
-import 'package:stock_app/utils/helpers/widgets/common_list.dart';
+import 'package:stock_app/widgets/common_list.dart';
 
 class TrendingPage extends StatefulWidget {
   const TrendingPage({super.key});

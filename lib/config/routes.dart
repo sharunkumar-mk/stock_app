@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:stock_app/constants/routes_path.dart';
-import 'package:stock_app/modules/buy_stock.dart';
-import 'package:stock_app/modules/dashboard.dart';
-import 'package:stock_app/modules/landing.dart';
-import 'package:stock_app/modules/single_stock.dart';
+import 'package:stock_app/screens/buy_stock.dart';
+import 'package:stock_app/screens/dashboard.dart';
+import 'package:stock_app/screens/landing.dart';
+import 'package:stock_app/screens/single_stock.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {

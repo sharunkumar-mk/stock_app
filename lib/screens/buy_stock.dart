@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:stock_app/constants/colors.dart';
-import 'package:stock_app/modules/buy_limit.dart';
-import 'package:stock_app/modules/buy_market.dart';
-import 'package:stock_app/modules/buy_oto.dart';
-import 'package:stock_app/modules/buy_stop.dart';
+import 'package:stock_app/screens/buy_limit.dart';
+import 'package:stock_app/screens/buy_market.dart';
+import 'package:stock_app/screens/buy_oto.dart';
+import 'package:stock_app/screens/buy_stop.dart';
 import 'package:stock_app/providers/theme_provider.dart';
-import 'package:stock_app/utils/helpers/widgets/common_Text.dart';
-import 'package:stock_app/utils/helpers/widgets/common_button.dart';
-import 'package:stock_app/utils/helpers/widgets/common_sub_text.dart';
-import 'package:stock_app/utils/helpers/widgets/common_tab_bar.dart';
+import 'package:stock_app/widgets/common_button.dart';
+import 'package:stock_app/widgets/common_sub_text.dart';
+import 'package:stock_app/widgets/common_tab_bar.dart';
+import 'package:stock_app/widgets/common_text.dart';
 
 class BuyStockPage extends ConsumerStatefulWidget {
   const BuyStockPage({super.key, this.data});

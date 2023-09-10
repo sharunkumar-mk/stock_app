@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stock_app/constants/colors.dart';
-import 'package:stock_app/utils/helpers/widgets/common_sub_text.dart';
+import 'package:stock_app/widgets/common_sub_text.dart';
 
 class CommonTextField extends StatelessWidget {
   const CommonTextField({super.key, this.label = ''});

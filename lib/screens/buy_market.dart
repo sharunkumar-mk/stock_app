@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stock_app/utils/helpers/widgets/common_text_field.dart';
+import 'package:stock_app/widgets/common_text_field.dart';
 
 class BuyMarketPage extends StatefulWidget {
   const BuyMarketPage({super.key});

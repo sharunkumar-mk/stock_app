@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stock_app/constants/colors.dart';
-import 'package:stock_app/utils/helpers/widgets/common_text.dart';
+import 'package:stock_app/widgets/common_text.dart';
 
 class CommonBulletList extends StatelessWidget {
   const CommonBulletList(

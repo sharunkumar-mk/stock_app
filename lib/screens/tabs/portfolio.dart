@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:stock_app/modules/history.dart';
-import 'package:stock_app/modules/holdings.dart';
-import 'package:stock_app/modules/performance.dart';
-import 'package:stock_app/utils/helpers/widgets/common_tab_bar.dart';
+import 'package:stock_app/screens/history.dart';
+import 'package:stock_app/screens/holdings.dart';
+import 'package:stock_app/screens/performance.dart';
+import 'package:stock_app/widgets/common_tab_bar.dart';
 
 class PortfolioPage extends StatefulWidget {
   const PortfolioPage({super.key});

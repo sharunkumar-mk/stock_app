@@ -2,13 +2,14 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:stock_app/constants/colors.dart';
-import 'package:stock_app/modules/trending.dart';
-import 'package:stock_app/utils/helpers/widgets/common_Text.dart';
-import 'package:stock_app/utils/helpers/widgets/common_button.dart';
-import 'package:stock_app/utils/helpers/widgets/common_card.dart';
-import 'package:stock_app/utils/helpers/widgets/common_icon_text.dart';
-import 'package:stock_app/utils/helpers/widgets/common_sub_text.dart';
-import 'package:stock_app/utils/helpers/widgets/common_text_button.dart';
+import 'package:stock_app/screens/trending.dart';
+
+import 'package:stock_app/widgets/common_button.dart';
+import 'package:stock_app/widgets/common_card.dart';
+import 'package:stock_app/widgets/common_icon_text.dart';
+import 'package:stock_app/widgets/common_sub_text.dart';
+import 'package:stock_app/widgets/common_text.dart';
+import 'package:stock_app/widgets/common_text_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

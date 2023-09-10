@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:stock_app/constants/colors.dart';
 import 'package:stock_app/constants/routes_path.dart';
-import 'package:stock_app/modules/about.dart';
-import 'package:stock_app/modules/news.dart';
-import 'package:stock_app/modules/overview.dart';
-import 'package:stock_app/modules/main_tabs/analytics.dart';
+import 'package:stock_app/screens/about.dart';
+import 'package:stock_app/screens/news.dart';
+import 'package:stock_app/screens/overview.dart';
+import 'package:stock_app/screens/tabs/analytics.dart';
 import 'package:stock_app/providers/theme_provider.dart';
-import 'package:stock_app/utils/helpers/widgets/common_Text.dart';
-import 'package:stock_app/utils/helpers/widgets/common_button.dart';
-import 'package:stock_app/utils/helpers/widgets/common_chart.dart';
-import 'package:stock_app/utils/helpers/widgets/common_icon_text.dart';
-import 'package:stock_app/utils/helpers/widgets/common_tab_bar.dart';
+
+import 'package:stock_app/widgets/common_button.dart';
+import 'package:stock_app/widgets/common_chart.dart';
+import 'package:stock_app/widgets/common_icon_text.dart';
+import 'package:stock_app/widgets/common_tab_bar.dart';
+import 'package:stock_app/widgets/common_text.dart';
 
 class SingleStockPage extends ConsumerStatefulWidget {
   const SingleStockPage({

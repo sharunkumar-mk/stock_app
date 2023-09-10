@@ -1,13 +1,13 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:stock_app/constants/colors.dart';
-import 'package:stock_app/modules/gainers.dart';
-import 'package:stock_app/modules/losers.dart';
-import 'package:stock_app/modules/trending.dart';
-import 'package:stock_app/utils/helpers/widgets/common_card.dart';
-import 'package:stock_app/utils/helpers/widgets/common_sub_text.dart';
-import 'package:stock_app/utils/helpers/widgets/common_tab_bar.dart';
-import 'package:stock_app/utils/helpers/widgets/common_text_button.dart';
+import 'package:stock_app/screens/gainers.dart';
+import 'package:stock_app/screens/losers.dart';
+import 'package:stock_app/screens/trending.dart';
+import 'package:stock_app/widgets/common_card.dart';
+import 'package:stock_app/widgets/common_sub_text.dart';
+import 'package:stock_app/widgets/common_tab_bar.dart';
+import 'package:stock_app/widgets/common_text_button.dart';
 
 class MarketPage extends StatefulWidget {
   const MarketPage({super.key});

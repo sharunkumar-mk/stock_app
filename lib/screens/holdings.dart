@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:stock_app/constants/colors.dart';
-import 'package:stock_app/modules/trending.dart';
-import 'package:stock_app/utils/helpers/widgets/common_Text.dart';
-import 'package:stock_app/utils/helpers/widgets/common_bullet_list.dart';
-import 'package:stock_app/utils/helpers/widgets/common_circular_chart.dart';
-import 'package:stock_app/utils/helpers/widgets/common_icon_text.dart';
+import 'package:stock_app/screens/trending.dart';
+import 'package:stock_app/widgets/common_bullet_list.dart';
+import 'package:stock_app/widgets/common_circular_chart.dart';
+import 'package:stock_app/widgets/common_icon_text.dart';
+import 'package:stock_app/widgets/common_text.dart';
 
 class HoldingsPage extends StatefulWidget {
   const HoldingsPage({super.key});
