@@ -1,10 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final themeNotifierProvider =
-    StateNotifierProvider<ThemeProvider, bool>((ref) => ThemeProvider());
+    StateNotifierProvider<ThemeNotifier, bool>((ref) => ThemeNotifier());
 
-class ThemeProvider extends StateNotifier<bool> {
-  ThemeProvider() : super(false);
+class ThemeNotifier extends StateNotifier<bool> {
+  ThemeNotifier() : super(false);
   void toggleTheme() {
     state = !state;
   }
