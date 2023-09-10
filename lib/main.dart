@@ -5,7 +5,7 @@ import 'package:stock_app/config/routes.dart';
 import 'package:stock_app/constants/routes_path.dart';
 import 'package:stock_app/constants/secure_storage_path.dart';
 import 'package:stock_app/providers/theme_provider.dart';
-import 'package:stock_app/utils/helpers/widgets/themes.dart';
+import 'package:stock_app/utils/themes.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
