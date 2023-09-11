@@ -23,6 +23,25 @@ class DashboardPageState extends ConsumerState<DashboardPage>
     PortfolioPage(),
     SettingsPage()
   ];
+
+  List<NavItems> navItems = [
+    NavItems(
+        active: "assets/icons/home_active.png",
+        inActive: "assets/icons/home.png"),
+    NavItems(
+        active: "assets/icons/document_active.png",
+        inActive: "assets/icons/document.png"),
+    NavItems(
+        active: "assets/icons/chart_active.png",
+        inActive: "assets/icons/chart.png"),
+    NavItems(
+        active: "assets/icons/pie-chart_active.png",
+        inActive: "assets/icons/pie-chart.png"),
+    NavItems(
+        active: "assets/icons/settings_active.png",
+        inActive: "assets/icons/settings.png")
+  ];
+
   late final tabController =
       TabController(length: widgetOptions.length, vsync: this);
   int selectedIndex = 0;
@@ -43,7 +62,6 @@ class DashboardPageState extends ConsumerState<DashboardPage>
                   )),
       ),
       child: Scaffold(
-        // backgroundColor: Colors.white,
         body: TabBarView(
           physics: const NeverScrollableScrollPhysics(),
           controller: tabController,
@@ -55,96 +73,25 @@ class DashboardPageState extends ConsumerState<DashboardPage>
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    IconButton(
-                        onPressed: () {
-                          setState(() {
-                            selectedIndex = 0;
-                            tabController.animateTo(0);
-                          });
-                        },
-                        icon: selectedIndex == 0
-                            ? Image.asset(
-                                "assets/icons/home_active.png",
-                                width: 25,
-                                color: Theme.of(context).iconTheme.color,
-                              )
-                            : Image.asset(
-                                "assets/icons/home.png",
-                                width: 25,
-                                color: Theme.of(context).iconTheme.color,
-                              )),
-                    IconButton(
-                        onPressed: () {
-                          setState(() {
-                            selectedIndex = 1;
-                            tabController.animateTo(1);
-                          });
-                        },
-                        icon: selectedIndex == 1
-                            ? Image.asset(
-                                "assets/icons/document_active.png",
-                                width: 25,
-                                color: Theme.of(context).iconTheme.color,
-                              )
-                            : Image.asset(
-                                "assets/icons/document.png",
-                                width: 25,
-                                color: Theme.of(context).iconTheme.color,
-                              )),
-                    IconButton(
-                        onPressed: () {
-                          setState(() {
-                            selectedIndex = 2;
-                            tabController.animateTo(2);
-                          });
-                        },
-                        icon: selectedIndex == 2
-                            ? Image.asset(
-                                "assets/icons/chart_active.png",
-                                width: 25,
-                                color: Theme.of(context).iconTheme.color,
-                              )
-                            : Image.asset(
-                                "assets/icons/chart.png",
-                                width: 25,
-                                color: Theme.of(context).iconTheme.color,
-                              )),
-                    IconButton(
-                        onPressed: () {
-                          setState(() {
-                            selectedIndex = 3;
-                            tabController.animateTo(3);
-                          });
-                        },
-                        icon: selectedIndex == 3
-                            ? Image.asset(
-                                "assets/icons/pie-chart_active.png",
-                                width: 25,
-                                color: Theme.of(context).iconTheme.color,
-                              )
-                            : Image.asset(
-                                "assets/icons/pie-chart.png",
-                                width: 25,
-                                color: Theme.of(context).iconTheme.color,
-                              )),
-                    IconButton(
-                        onPressed: () {
-                          setState(() {
-                            selectedIndex = 4;
-                            tabController.animateTo(4);
-                          });
-                        },
-                        icon: selectedIndex == 4
-                            ? Image.asset(
-                                "assets/icons/settings_active.png",
-                                width: 25,
-                                color: Theme.of(context).iconTheme.color,
-                              )
-                            : Image.asset(
-                                "assets/icons/settings.png",
-                                width: 25,
-                                color: Theme.of(context).iconTheme.color,
-                              )),
+                    for (var item in navItems)
+                      IconButton(
+                          onPressed: () {
+                            setState(() {
+                              selectedIndex = navItems.indexOf(item);
+                              tabController.animateTo(navItems.indexOf(item));
+                            });
+                          },
+                          icon: selectedIndex == navItems.indexOf(item)
+                              ? Image.asset(
+                                  item.active,
+                                  width: 25,
+                                  color: Theme.of(context).iconTheme.color,
+                                )
+                              : Image.asset(
+                                  item.inActive,
+                                  width: 25,
+                                  color: Theme.of(context).iconTheme.color,
+                                )),
                   ]),
             ),
           ],
@@ -152,4 +99,10 @@ class DashboardPageState extends ConsumerState<DashboardPage>
       ),
     );
   }
+}
+
+class NavItems {
+  final String active;
+  final String inActive;
+  NavItems({required this.active, required this.inActive});
 }

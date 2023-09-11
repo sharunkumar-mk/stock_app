@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:stock_app/screens/history.dart';
 import 'package:stock_app/screens/holdings.dart';
 import 'package:stock_app/screens/performance.dart';
